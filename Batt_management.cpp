@@ -22,6 +22,18 @@ Batt_management::Batt_management(int pinV, int pinC, float capacity){
     
 }
 
+void Batt_management::setup{
+
+// Setup the INA219.
+ina219.begin();
+// By default the INA219 will be calibrated with a range of 32V, 2A.
+// However uncomment one of the below to change the range.  A smaller
+// range can't measure as large of values but will measure with slightly
+// better precision.
+//ina219.setCalibration_32V_1A();
+//ina219.setCalibration_16V_400mA();
+}
+
 void Batt_management::read(){
     uint32_t now_time = hal.scheduler->micros();
     

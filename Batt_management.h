@@ -20,11 +20,10 @@
 class Batt_management {
     
 protected :
-    int pin_volt;           //the pin number to read the voltage
-    int pin_current;        //the pin to read the current
     
     float batt_maxcapacity; //the maximum capacity
     float min_capacity;     //minimum capacity accepted
+    Adafruit_INA219 ina219;
     
     
     
@@ -35,6 +34,8 @@ public:
     Batt_management();
     
     Batt_management(int pinV, int pinC, float capacity);
+    
+    void setup();
     
     struct Batt_state{ //Battery state
         
